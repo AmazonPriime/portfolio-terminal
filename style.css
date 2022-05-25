@@ -1,0 +1,56 @@
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-black: #000000;
+  --vt-c-white-mute: #f2f2f2;
+  --vt-c-black-mute: #282828;
+  --vt-c-text-light-1: var(--vt-c-black);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+:root {
+  --color-background: var(--vt-c-black);
+  --color-background-mute: var(--vt-c-black-mute);
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--vt-c-text-dark-2);
+  --color-border: var(--vt-c-divider-dark-1);
+}
+
+[data-theme="light"] {
+  --color-background: var(--vt-c-white);
+  --color-background-mute: var(--vt-c-white-mute);
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+  --color-border: var(--vt-c-divider-light-1);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-heading);
+  font-family: monospace;
+  font-size: 1.1em;
+}
+
+a {
+  color: #3498db
+}
+
+pre {
+  width: 100%;
+}
+
+.terminal-line {
+  display: flex;
+}
+
+.input {
+  outline: none;
+  display: inline-block;
+  margin-left: 0.25em;
+  width: calc(100% - 2em);
+}
+
+.indent {
+  margin-left: 1em;
+}
