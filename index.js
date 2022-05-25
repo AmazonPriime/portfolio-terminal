@@ -29,7 +29,7 @@ function invalidCommand(cmd) {
 }
 
 function submitCommand(e) {
-  if (e.code === "Enter") {
+  if (e.key === "Enter") {
     e.preventDefault();
     var curInput = document.getElementById('input');
     if (curInput) {
@@ -52,7 +52,7 @@ function submitCommand(e) {
     }
   }
 
-  if (e.code === "ArrowUp") {
+  if (e.key === "ArrowUp") {
     e.preventDefault();
     document.getElementById('input').textContent = history[historyCursor];
     historyCursor -= 1;
@@ -60,7 +60,7 @@ function submitCommand(e) {
       historyCursor = 0;
     }
   }
-  if (e.code === "ArrowDown") {
+  if (e.key === "ArrowDown") {
     e.preventDefault();
     document.getElementById('input').textContent = history[historyCursor];
     historyCursor += 1;
