@@ -1,3 +1,6 @@
+const history = [];
+let historyCursor = 0;
+
 function surroundBreaks(element) {
   element.prepend(document.createElement("br"));
   element.append(document.createElement("br"));
@@ -26,15 +29,13 @@ function invalidCommand(cmd) {
 }
 
 function submitCommand(e) {
-  if (e.code == "Enter") {
+  if (e.code === "Enter") {
     e.preventDefault();
     var curInput = document.getElementById('input');
     if (curInput) {
-      // disable current input
       curInput.id = "old-input";
       curInput.setAttribute('contenteditable', false);
       curInput.setAttribute('autofocus', false);
-      // run command and print output
       const args = curInput.textContent.toLowerCase().split(' ');
       if (Object.keys(COMMANDS).includes(args[0])) {
         const output = COMMANDS[args[0]].fn(args.slice(1));
@@ -44,9 +45,27 @@ function submitCommand(e) {
       } else {
         document.getElementById('main').appendChild(invalidCommand(args[0]));
       }
-      // add new command input
       document.getElementById('main').appendChild(getInputElement());
       document.getElementById('input').focus();
+      history.push(curInput.textContent);
+      historyCursor = history.length - 1;
+    }
+  }
+
+  if (e.code === "ArrowUp") {
+    e.preventDefault();
+    document.getElementById('input').textContent = history[historyCursor];
+    historyCursor -= 1;
+    if (historyCursor < 0) {
+      historyCursor = 0;
+    }
+  }
+  if (e.code === "ArrowDown") {
+    e.preventDefault();
+    document.getElementById('input').textContent = history[historyCursor];
+    historyCursor += 1;
+    if (historyCursor >= history.length) {
+      historyCursor = history.length - 1;
     }
   }
 }
