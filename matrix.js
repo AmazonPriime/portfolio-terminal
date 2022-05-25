@@ -4,7 +4,7 @@ var c = document.getElementById("matrix-canvas");
 var ctx = c.getContext("2d");
 
 //making the canvas full screen
-c.height = window.innerHeight;
+c.height = window.innerHeight * 2;
 c.width = window.innerWidth;
 
 //chinese characters - taken from the unicode charset
