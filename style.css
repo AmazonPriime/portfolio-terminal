@@ -1,43 +1,39 @@
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-black: #000000;
-  --vt-c-white-mute: #f2f2f2;
-  --vt-c-black-mute: #282828;
-  --vt-c-text-light-1: var(--vt-c-black);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
-
-:root {
-  --color-background: var(--vt-c-black);
-  --color-background-mute: var(--vt-c-black-mute);
-  --color-heading: var(--vt-c-text-dark-1);
-  --color-text: var(--vt-c-text-dark-2);
-  --color-border: var(--vt-c-divider-dark-1);
+  --color-background: black;
+  --color-text: white;
+  --color-text-hightlight: #3498db;
 }
 
 [data-theme="light"] {
-  --color-background: var(--vt-c-white);
-  --color-background-mute: var(--vt-c-white-mute);
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-  --color-border: var(--vt-c-divider-light-1);
+  --color-background: white;
+  --color-text: black;
+}
+
+[data-theme="matrix"] {
+  --color-background: black;
+  --color-text: #22b455;
+  --color-text-hightlight: #80ce87;
 }
 
 body {
   background-color: var(--color-background);
-  color: var(--color-heading);
+  color: var(--color-text);
   font-family: monospace;
   font-size: 1.1em;
+  margin-top: 0;
 }
 
 a {
-  color: #3498db
+  color: var(--color-text-hightlight)
 }
 
 pre {
   width: 100%;
+  margin-top: 0;
+}
+
+main {
+  margin-top: 2em;
 }
 
 .terminal-line {
@@ -53,4 +49,17 @@ pre {
 
 .indent {
   margin-left: 1em;
+}
+
+#matrix-canvas {
+  display: none;
+}
+
+[data-theme="matrix"] #matrix-canvas {
+  display: initial;
+}
+
+#matrix-canvas {
+  position: absolute;
+  z-index: -100000;
 }

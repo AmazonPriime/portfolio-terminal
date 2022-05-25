@@ -1,4 +1,9 @@
 const COMMANDS = {
+  who: {
+    desc: 'Short description of who I am.',
+    example: 'who',
+    fn: who,
+  },
   help: {
     desc: 'Shows a list of usable commands and how to use them.',
     example: 'help',
@@ -11,7 +16,7 @@ const COMMANDS = {
   },
   theme: {
     desc: 'Allows you to change the theme of the website.',
-    options: ['dark', 'light'],
+    options: ['dark', 'light', 'matrix'],
     example: 'theme light',
     fn: theme,
   },
@@ -73,6 +78,10 @@ function usage(cmd) {
   return div;
 }
 
+function who() {
+  console.log("WHO")
+}
+
 function help() {
   const div = document.createElement("div");
   const cmds = Object.keys(COMMANDS);
@@ -97,6 +106,11 @@ function theme(name = []) {
   }
   localStorage.setItem('theme', name.toLowerCase());
   document.documentElement.setAttribute('data-theme', name.toLowerCase());
+  if (name.toLowerCase() === 'matrix') {
+    const div = document.createElement("div");
+    div.innerHTML = 'Credit for the Matrix backdrop goes to <a href="https://codepen.io/wefiy">wefiy</a> on Codepen.<br/>';
+    return div;
+  }
 }
 
 function projects() {
