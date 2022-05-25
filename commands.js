@@ -79,7 +79,15 @@ function usage(cmd) {
 }
 
 function who() {
-  console.log("WHO")
+  const div = document.createElement("div");
+  div.innerHTML = `My name is Luke Holland and I am a Software Developer and a student! <br/><br/>
+  I'm a 4th year student at the University of Glasgow studying Software Engineering. <br/>
+  Not only am I a student but I work at the University as a developer at the Glasgow University Software Service (GUSS). <br/>
+  Primarily I have worked on web development at GUSS working with React for frontent and Express for backend additionally <br/>
+  as a full stack developer I've also worked with setting up CI/CD pipelines to automate the deployment of code. <br/>
+  Once I graduate I will be joining Barclays on their Graduate program in August, where I look to start my professional <br/>
+  career as a Software Developer/Engineer.<br/>`
+  return div;
 }
 
 function help() {
